@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { Eye, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+
 
 export default function ProductCard({ products }) {
-  const router = useRouter();
+  
   const { state, dispatch } = useProductContext();
 
   if (!products || products.length === 0) {

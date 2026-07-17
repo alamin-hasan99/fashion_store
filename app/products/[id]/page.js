@@ -2,13 +2,14 @@ import ProductAction from "@/components/productDetails/ProductAction";
 import { Star } from "lucide-react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import products from "@/data/products.json";
 
 export default async function ProductsPageDetails({ params }) {
   const { id } = await params;
   // console.log(id)
 
-  const response = await fetch("http://localhost:3000/products.json");
-  const products = await response.json();
+  // const response = await fetch("http://localhost:3000/products.json");
+  // const products = await response.json();
 
   const product = products.find((item) => item.id === Number(id));
 
@@ -18,6 +19,9 @@ export default async function ProductsPageDetails({ params }) {
 
   return (
     <section className="p-5 pb-24 lg:p-12">
+      <div className=" text-center mb-6">
+        <h1 className=" text-4xl font-semibold text-text-primary">Products Details</h1>
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
         <div className=" relative h-60 lg:h-112.5 overflow-hidden">
           <Image
