@@ -51,7 +51,7 @@ export default function Hero() {
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
-        className="relative h-80 md:h-96 lg:h-125"
+        className="relative h-80 md:h-96 lg:h-115"
       >
         <Image
           src="/hero.jpg"

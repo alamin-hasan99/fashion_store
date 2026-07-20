@@ -10,7 +10,6 @@ export default function CategoryFilter({ categoriesTag }) {
   const { state, dispatch } = useProductContext();
   return (
     <motion.aside
-      whileHover={{ scale: 1.01 }}
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}

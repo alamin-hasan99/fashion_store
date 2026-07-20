@@ -5,7 +5,9 @@ import { useState } from "react";
 
 
 export default function ProductAction({ product }) {
-    const { dispatch } = useProductContext();
+    const {state, dispatch } = useProductContext();
+    console.log(state.wishlist.length)
+
     const [quantity, setQuantity] = useState(1);
     const increse = ()=> {
         setQuantity((incre) => incre + 1)
@@ -47,9 +49,9 @@ export default function ProductAction({ product }) {
       </div>
 
       <div className="flex flex-col gap-4 mt-3 w-40">
-        <button onClick={handleAddToCart} className="py-3 rounded cursor-pointer bg-primary text-white hover:bg-primary-hover transition duration-300 flex items-center justify-center gap-2">
+        <button onClick={handleAddToCart} disabled={!product.inStock} className={`${product.inStock ? "cursor-pointer bg-primary hover:bg-primary-hover transition duration-300" : " bg-danger cursor-not-allowed"} py-3 rounded  text-white flex items-center justify-center gap-2`}>
           <ShoppingCart size={18} />
-          Add to Cart
+          {product.inStock ? "Add to Cart" : "Out of Stock"} 
         </button>
 
         <button onClick={handleWishlist} className="py-3 rounded border border-primary text-primary cursor-pointer hover:bg-primary hover:text-white transition duration-300 flex items-center justify-center gap-1">

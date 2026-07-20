@@ -40,7 +40,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className=" text-center text-sm bg-border py-6">
+      <div className=" text-center text-sm bg-border pb-20 pt-4 md:py-4">
         <p>
           &copy; 2026 Fashion Store. Built with Next.js & Tailwind CSS.{" "}
           <span className="text-[10px]">Design By Al-amin Hasan</span>{" "}

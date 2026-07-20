@@ -9,7 +9,7 @@ const ToggleBtn = dynamic(() => import("./ToggleBtn"), { ssr: false });
 
 export default function MobileMenuBar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { dispatch } = useProductContext();
+  const { state, dispatch } = useProductContext();
 
   return (
     <div>
@@ -19,11 +19,28 @@ export default function MobileMenuBar() {
             <Menu size={28} />
           </button>
 
-          <Link href='/wishlist'>
+          <Link href="/wishlist" className=" relative">
+            {state.wishlist.length === 0 ? (
+              " "
+            ) : (
+              <span className=" absolute top-0 right-3 bg-danger rounded-full px-2 text-sm ">
+                {state.wishlist.length}
+              </span>
+            )}
             <HeartPlus size={28} />
           </Link>
 
-          <button onClick={()=> dispatch({type:"TOGGLE"})}>
+          <button
+            onClick={() => dispatch({ type: "TOGGLE" })}
+            className=" relative"
+          >
+            {state.cart.length === 0 ? (
+              " "
+            ) : (
+              <span className=" absolute top-0 right-3 bg-danger rounded-full px-2 text-sm ">
+                {state.cart.length}
+              </span>
+            )}
             <ShoppingCart size={28} />
           </button>
 

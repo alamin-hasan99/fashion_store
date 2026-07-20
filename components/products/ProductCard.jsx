@@ -82,7 +82,7 @@ export default function ProductCard({ products }) {
           <button
             onClick={() => handleAddToCart(product)}
             disabled={!product.inStock}
-            className={`block py-2 text-text-primary text-center w-full text-lg ${product.inStock ? " bg-success cursor-pointer" : " bg-danger/70 text-text-secondary cursor-not-allowed"}`}
+            className={`block py-2 text-text-primary text-center w-full text-lg ${product.inStock ? " bg-success cursor-pointer" : " bg-danger text-text-secondary cursor-not-allowed"}`}
           >
             {product.inStock ? "Add to Cart" : "Out of Stock"}
           </button>

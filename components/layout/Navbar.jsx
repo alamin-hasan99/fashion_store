@@ -61,13 +61,27 @@ export default function Navbar() {
       </ul>
 
       <div className="hidden md:flex items-center gap-10">
-        <Link href="/wishlist" className=" cursor-pointer">
+        <Link href="/wishlist" className=" relative cursor-pointer">
+          {state.wishlist.length === 0 ? (
+            " "
+          ) : (
+            <span className=" absolute top-0 right-3 bg-danger rounded-full px-2 text-sm ">
+              {state.wishlist.length}
+            </span>
+          )}
           <HeartPlus size={28} />
         </Link>
         <button
-          className=" cursor-pointer"
+          className=" relative cursor-pointer"
           onClick={() => dispatch({ type: "TOGGLE" })}
         >
+          {state.cart.length === 0 ? (
+            " "
+          ) : (
+            <span className=" absolute top-0 right-3 bg-danger rounded-full px-2 text-sm ">
+              {state.cart.length}
+            </span>
+          )}
           <ShoppingCart size={28} />
         </button>
         <ToggleBtn />
